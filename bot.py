@@ -1,6 +1,10 @@
 import discord
 from config import TOKEN
 from discord.ext import commands
+from bot_logic import gen_pass
+import os
+import random
+
 
 
 
@@ -23,5 +27,11 @@ async def heh(ctx, count_heh = 5):
 @bot. command()
 async def passaword (ctx, size = 10):
     await ctx.send(gen_pass(size))
+@bot.command()
+async def memes(ctx):
+    escolha = random.choice(os.listdir('memes'))
+    with open(f'memes/{escolha}', 'rb') as f:
+        picture = discord.File(f)
+    await ctx.send(file=picture)
 
 bot.run(TOKEN)
