@@ -34,4 +34,10 @@ async def memes(ctx):
         picture = discord.File(f)
     await ctx.send(file=picture)
 
+@bot.command()
+async def Back_in_black(ctx):
+    text= "rock"
+    with open('sounds/back_in_black.mp3', 'rb') as f:
+        sound = discord.File(f)
+        await ctx.send(text, file=sound)
 bot.run(TOKEN)
